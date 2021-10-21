@@ -51,4 +51,8 @@ public class Goretest extends BaseTest {
 		Assert.assertEquals(response, "204"," The request was handled successfully and the response contains no body content");
 	}
 	
+	@Test
+	public void test() {
+		String str = "first commit";
+	}
 }
