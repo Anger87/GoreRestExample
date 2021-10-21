@@ -53,6 +53,6 @@ public class Goretest extends BaseTest {
 	
 	@Test
 	public void test() {
-		String str = "first commit";
+		String str2 = "second commit";
 	}
 }
