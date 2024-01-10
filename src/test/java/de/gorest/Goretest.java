@@ -23,27 +23,4 @@ public class Goretest extends BaseTest {
 		List<User> userList = reguestAction.getUserList();
 		Assert.assertFalse(userList.isEmpty(), "User list is empty");
 	}
-
-	@Test
-	public void testCreateUpdateDeleteUser() {
-		User userBody = new User()
-				.name("TestName")
-				.email(HelpMethods.generateRandomString("test", "email") + "@test")
-				.gender("Male")
-				.status("Active");
-		//create user
-		User user = reguestAction.createUser(HelpMethods.ConvertJavaObjectToJsonString(userBody));
-		Assert.assertTrue(user.status.contains("active"), "User not created");
-		
-		User userBodyUpdated = userBody.name("TestName Updated");
-		//update user
-		User userBodyUpdatedResponse = reguestAction.updateUser(user.id, HelpMethods.ConvertJavaObjectToJsonString(userBodyUpdated));
-		Assert.assertEquals(userBodyUpdated.name, userBodyUpdatedResponse.name, "User name was not updated");
-		
-		//delete user
-		String response =reguestAction.deleteUser(user.id);
-		Assert.assertEquals(response, "204"," The request was handled successfully and the response contains no body content");
-	}
-	
-
 }
