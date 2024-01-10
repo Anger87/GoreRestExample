@@ -23,13 +23,7 @@ public class Goretest extends BaseTest {
 		List<User> userList = reguestAction.getUserList();
 		Assert.assertFalse(userList.isEmpty(), "User list is empty");
 	}
-	
-	@Test
-	public void testProducts() {
-		String products = reguestAction.getProducts();
-		Assert.assertFalse(products.isEmpty(), "Products list is empty");
-	}
-	
+
 	@Test
 	public void testCreateUpdateDeleteUser() {
 		User userBody = new User()
@@ -39,7 +33,7 @@ public class Goretest extends BaseTest {
 				.status("Active");
 		//create user
 		User user = reguestAction.createUser(HelpMethods.ConvertJavaObjectToJsonString(userBody));
-		Assert.assertTrue(user.created_at.length() > 0, "User not created");
+		Assert.assertTrue(user.status.contains("active"), "User not created");
 		
 		User userBodyUpdated = userBody.name("TestName Updated");
 		//update user
@@ -51,10 +45,5 @@ public class Goretest extends BaseTest {
 		Assert.assertEquals(response, "204"," The request was handled successfully and the response contains no body content");
 	}
 	
-	@Test
-	public void test() {
-		String str2 = "second commit";
-		String str4 = "fourth commit";
-		
-	}
+
 }

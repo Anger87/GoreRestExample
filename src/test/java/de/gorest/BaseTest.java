@@ -45,7 +45,7 @@ public class BaseTest {
 				.setBaseUri(URL)
 				.addHeader("Authorization", authCode)
 				.setContentType(ContentType.JSON)
-				.log(LogDetail.ALL)
+//				.log(LogDetail.ALL)
 				.build();
 	}
 	

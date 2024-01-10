@@ -14,15 +14,6 @@ public class ReguestAction {
 		this.requestSpecification = requestSpecification;
 	}
 	
-	public String getProducts() {
-		return given(requestSpecification)
-				.get("/public-api/products")
-				.then()
-				.log().all()
-				.extract().body()
-				.jsonPath().getString("data");
-	}
-	
 	public List<User> getUserList() {
 		return given(requestSpecification)
 				.get("/public-api/users")
